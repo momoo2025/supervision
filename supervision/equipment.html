@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Supervision - Maintenance</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar topbar-maintenance">
+    <h1 id="equipmentTitle">Détails équipement</h1>
+    <div class="topbar-actions">
+      <a class="btn" href="index.html">Retour au synoptique</a>
+      <a id="exitButton" class="btn btn-danger" href="index.html">Sortie</a>
+    </div>
+  </header>
+
+  <main class="maintenance-layout">
+    <section class="card">
+      <h2>Infos principales</h2>
+      <div id="equipmentStatus" class="status-pill">Statut</div>
+      <div id="mainInfo" class="grid grid-2"></div>
+    </section>
+
+    <section class="card">
+      <h2>Maintenance</h2>
+      <div id="maintenanceInfo" class="grid grid-2"></div>
+      <h3>Alertes</h3>
+      <ul id="maintenanceAlerts" class="list"></ul>
+    </section>
+
+    <section class="card">
+      <h2>Documents</h2>
+      <ul id="documentsList" class="doc-list"></ul>
+    </section>
+
+    <section class="card charts-card">
+      <div class="chart-toolbar">
+        <h2>Courbes</h2>
+        <div class="time-controls">
+          <div class="control-group">
+            <span class="control-label">Pas de temps</span>
+            <div class="period-filter" id="stepFilter">
+              <button type="button" class="period-btn step-btn is-active" data-step="minute">Minute</button>
+              <button type="button" class="period-btn step-btn" data-step="hour">Heure</button>
+              <button type="button" class="period-btn step-btn" data-step="day">Jour</button>
+              <button type="button" class="period-btn step-btn" data-step="week">Semaine</button>
+            </div>
+          </div>
+          <div class="control-group">
+            <span class="control-label">Période</span>
+            <div class="period-filter" id="periodFilter"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="chart-grid">
+        <div class="chart-item">
+          <h3>Température</h3>
+          <canvas id="tempChart" width="640" height="220"></canvas>
+          <div id="tempLegend" class="legend"></div>
+        </div>
+        <div class="chart-item">
+          <h3>Pression</h3>
+          <canvas id="pressureChart" width="640" height="220"></canvas>
+          <div id="pressureLegend" class="legend"></div>
+        </div>
+        <div class="chart-item">
+          <h3>Puissance</h3>
+          <canvas id="powerChart" width="640" height="220"></canvas>
+          <div id="powerLegend" class="legend"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="data.js"></script>
+  <script src="equipment.js"></script>
+</body>
+</html>
